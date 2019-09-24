@@ -1,0 +1,573 @@
+{
+	"info": {
+		"_postman_id": "2e36033b-424f-4974-b2a2-e1f2f728ec62",
+		"name": "BoardGamesApi 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "No Auth",
+			"item": [
+				{
+					"name": "Get all games",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/games/?size=5&page=1",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"games",
+								""
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get game by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/games/gam-000002",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"games",
+								"gam-000002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create game",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\": \"Charterstone\",\n\t\"year\": 2017,\n\t\"rating\": 7.7,\n\t\"age\": \"10+\",\n\t\"players\": \"1-6\",\n\t\"playingTime\": \"45-75 min\",\n\t\"designer\": \"Jamey Stegmaier\",\n\t\"publisher\": \"Stonemaier Games\",\n\t\"url\": \"https://boardgamegeek.com/boardgame/197376/charterstone\",\n\t\"image\": \"https://boardgamegeek.com/image/3322613/charterstone\",\n\t\"types\": [ \"legacy\", \"campaign\" ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/games/",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"games",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update game",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"7 Wonders 2\",\n  \"year\": 2010,\n  \"rating\": 7.8,\n  \"age\": \"10+\",\n  \"players\": \"2-7\",\n  \"playingTime\": \"30 min\",\n  \"designer\": \"Antoine Bauza\",\n  \"publisher\": \"Repos Production\",\n  \"url\": \"https://boardgamegeek.com/boardgame/68448/7-wonders\",\n  \"image\": \"https://boardgamegeek.com/image/860217/7-wonders\",\n  \"types\": [ \"family\", \"strategy\" ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/games/gam-000002",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"games",
+								"gam-000002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete game",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/games/gam-000002",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"games",
+								"gam-000002"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Get all games",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/games?size=5&page=1",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"games"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get game by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/games/gam-000002",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"games",
+								"gam-000002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Charterstone\",\n  \"year\": 2017,\n  \"rating\": 7.7,\n  \"age\": \"10+\",\n  \"players\": \"1-6\",\n  \"playingTime\": \"45-75 min\",\n  \"designer\": \"Jamey Stegmaier\",\n  \"publisher\": \"Stonemaier Games\",\n  \"url\": \"https://boardgamegeek.com/boardgame/197376/charterstone\",\n  \"image\": \"https://boardgamegeek.com/image/3322613/charterstone\",\n  \"types\": [ \"legacy\", \"campaign\" ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/games/",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"games",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"7 Wonders 2\",\n  \"year\": 2010,\n  \"rating\": 7.8,\n  \"age\": \"10+\",\n  \"players\": \"2-7\",\n  \"playingTime\": \"30 min\",\n  \"designer\": \"Antoine Bauza\",\n  \"publisher\": \"Repos Production\",\n  \"url\": \"https://boardgamegeek.com/boardgame/68448/7-wonders\",\n  \"image\": \"https://boardgamegeek.com/image/860217/7-wonders\",\n  \"types\": [ \"family\", \"strategy\" ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/games/gam-000002",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"games",
+								"gam-000002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/games/gam-000002",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"games",
+								"gam-000002"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "68b495c4-d2b7-491a-b8af-882a87d56869",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "03307f2c-474c-45c3-bbd2-9418a3342481",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Versioned",
+			"item": [
+				{
+					"name": "Get all games",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/v2/games",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"v2",
+								"games"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get game by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/v2/games/gam-000002",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"v2",
+								"games",
+								"gam-000002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Charterstone\",\n  \"year\": 2017,\n  \"rating\": 7.7,\n  \"age\": \"10+\",\n  \"players\": \"1-6\",\n  \"playingTime\": \"45-75 min\",\n  \"designer\": \"Jamey Stegmaier\",\n  \"publisher\": \"Stonemaier Games\",\n  \"url\": \"https://boardgamegeek.com/boardgame/197376/charterstone\",\n  \"image\": \"https://boardgamegeek.com/image/3322613/charterstone\",\n  \"types\": [ \"legacy\", \"campaign\" ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/v2/games",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"v2",
+								"games"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"7 Wonders 2\",\n  \"year\": 2010,\n  \"rating\": 7.8,\n  \"age\": \"10+\",\n  \"players\": \"2-7\",\n  \"playingTime\": \"30 min\",\n  \"designer\": \"Antoine Bauza\",\n  \"publisher\": \"Repos Production\",\n  \"url\": \"https://boardgamegeek.com/boardgame/68448/7-wonders\",\n  \"image\": \"https://boardgamegeek.com/image/860217/7-wonders\",\n  \"types\": [ \"family\", \"strategy\" ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/v2/games/gam-000002",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"v2",
+								"games",
+								"gam-000002"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{adminToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/v2/games/gam-000002",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"v2",
+								"games",
+								"gam-000002"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "64ad023f-35e2-4d21-aee4-f6b946c4cc1f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f0f0c137-d01c-4c26-af16-75a9d6332bba",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Monitoring",
+			"item": [
+				{
+					"name": "{{baseUrl}}live",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}live",
+							"host": [
+								"{{baseUrl}}live"
+							]
+						},
+						"description": "Health-check"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "34455c98-99a5-43f2-a2ed-47424cf6faf9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "0dc1b1fa-4dd5-4c96-a9cc-11c96bbb347a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "9fd618b7-da52-4810-88e8-91186aa1a34f",
+			"key": "baseUrl",
+			"value": "https://localhost:44337/",
+			"type": "string"
+		},
+		{
+			"id": "fbbf4d56-f919-4410-b201-166f9c398c51",
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "eef9806a-a31a-4782-bc98-8099d0550804",
+			"key": "adminToken",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
