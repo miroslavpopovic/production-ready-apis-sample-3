@@ -16,6 +16,8 @@ namespace BoardGamesApi.Extensions
                 .AddJwtBearer(
                     options =>
                     {
+                        // Auth0 dashboard: https://manage.auth0.com/dashboard/us/production-ready-apis-3/apis
+
                         var tokenValidationParameters = new TokenValidationParameters
                         {
                             ValidIssuer = configuration["Tokens:Issuer"],
