@@ -8,6 +8,6 @@ For an older version of the sample that's using ASP.NET Core 2.2 and for older p
 
 To follow up the presentation, switch through the various numbered git branches.
 
-## Download (TODO)
+## Download
 
 - [Postman collection](board-games-api-postman-collection.json) for testing the API
