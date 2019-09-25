@@ -48,6 +48,8 @@ namespace BoardGamesApi
 
             app.UseAuthorization();
 
+            app.UseMiddleware<LimitingMiddleware>();
+
             app.UseOpenApi();
             app.UseSwaggerUi3();
 
