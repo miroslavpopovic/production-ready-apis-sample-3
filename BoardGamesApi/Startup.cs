@@ -25,6 +25,8 @@ namespace BoardGamesApi
             services.AddJwtBearerAuthentication(Configuration);
 
             services.AddControllers();
+
+            services.AddOpenApi();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +47,9 @@ namespace BoardGamesApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseEndpoints(endpoints =>
             {

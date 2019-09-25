@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using NSwag.Annotations;
 
 namespace BoardGamesApi.Controllers
 {
+    [OpenApiIgnore]
     // DEMO PURPOSE ONLY!
     public class DemoTokenController : Controller
     {
