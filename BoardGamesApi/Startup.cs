@@ -26,6 +26,8 @@ namespace BoardGamesApi
 
             services.AddControllers();
 
+            services.AddVersioning();
+
             services.AddOpenApi();
         }
 

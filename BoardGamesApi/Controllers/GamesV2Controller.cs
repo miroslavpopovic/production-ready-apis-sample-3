@@ -12,10 +12,10 @@ namespace BoardGamesApi.Controllers
     /// </summary>
     [ApiController]
     [ApiConventionType(typeof(DefaultApiConventions))]
-    [ApiVersion("1", Deprecated = true)]
+    [ApiVersion("2")]
     [Authorize]
     [Route("api/v{version:apiVersion}/games")]
-    public class GamesController : Controller
+    public class GamesV2Controller : Controller
     {
         private readonly IGamesRepository _gamesRepository;
         private readonly ILogger<GamesController> _logger;
@@ -25,7 +25,7 @@ namespace BoardGamesApi.Controllers
         /// </summary>
         /// <param name="gamesRepository">A repository for managing the games.</param>
         /// <param name="logger">Logger implementation.</param>
-        public GamesController(IGamesRepository gamesRepository, ILogger<GamesController> logger)
+        public GamesV2Controller(IGamesRepository gamesRepository, ILogger<GamesController> logger)
         {
             _gamesRepository = gamesRepository;
             _logger = logger;
