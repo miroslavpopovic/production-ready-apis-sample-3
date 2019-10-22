@@ -13,4 +13,4 @@ To follow up the presentation, switch through the various numbered git branches.
 ## Download
 
 - [Postman collection](board-games-api-postman-collection.json) for testing the API
-- TODO: .NET DeveloperDays 2019 presentation
+- [.NET DeveloperDays 2019 presentation](dotnet-developer-days-production-ready-apis.pptx)
